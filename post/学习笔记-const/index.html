@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>学习笔记 Const - Asdstail&#39;s Blog</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="asdstail" />
+  <meta name="description" content="修改数据声明时，const关键字指定对象或变量不可修改。 1、用于声明变量 const关键字用于声明变量时，变量的值不可修改。 1 2 3 4 const int a = 6;" />
+
+  <meta name="keywords" content="Hugo, theme, Asdstail" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.47.1" />
+
+
+<link rel="canonical" href="/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-const/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+<link href="/dist/jane.min.css?v=2.7.0" rel="stylesheet">
+
+
+
+
+<meta property="og:title" content="学习笔记 Const" />
+<meta property="og:description" content="修改数据声明时，const关键字指定对象或变量不可修改。 1、用于声明变量 const关键字用于声明变量时，变量的值不可修改。 1 2 3 4 const int a = 6;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-const/" /><meta property="article:published_time" content="2018-09-20T18:21:50&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-20T18:21:50&#43;08:00"/>
+<meta itemprop="name" content="学习笔记 Const">
+<meta itemprop="description" content="修改数据声明时，const关键字指定对象或变量不可修改。 1、用于声明变量 const关键字用于声明变量时，变量的值不可修改。 1 2 3 4 const int a = 6;">
+
+
+<meta itemprop="datePublished" content="2018-09-20T18:21:50&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-20T18:21:50&#43;08:00" />
+<meta itemprop="wordCount" content="742">
+
+
+
+<meta itemprop="keywords" content="const,c&#43;&#43;," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="学习笔记 Const"/>
+<meta name="twitter:description" content="修改数据声明时，const关键字指定对象或变量不可修改。 1、用于声明变量 const关键字用于声明变量时，变量的值不可修改。 1 2 3 4 const int a = 6;"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Asdstail</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">Home</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">Archives</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/tags/">Tags</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">Categories</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/about/">About</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://gohugo.io" rel="noopener" target="_blank">
+              external-link
+              <i class="iconfont icon-new-window"></i>
+            </a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      Asdstail
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">Home</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">Archives</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/tags/">Tags</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">Categories</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/about/">About</a>
+          
+
+        
+
+      </li>
+    
+      <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://gohugo.io" rel="noopener" target="_blank">
+              external-link
+            <i class="iconfont icon-new-window"></i>
+            </a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">学习笔记 Const</h1>
+      
+      <div class="post-meta">
+        <span class="post-time"> 2018-09-20 </span>
+        <div class="post-category">
+            <a href="/categories/c&#43;&#43;/"> c&#43;&#43; </a>
+            
+          </div>
+        <span class="more-meta"> 约 742 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-用于声明变量">1、用于声明变量</a></li>
+<li><a href="#2-用于声明指针">2、用于声明指针</a></li>
+<li><a href="#3-用于声明函数参数">3、用于声明函数参数</a></li>
+<li><a href="#4-用于声明函数返回值">4、用于声明函数返回值</a></li>
+<li><a href="#5-用于声明类成员函数">5、用于声明类成员函数</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>修改数据声明时，<strong>const</strong>关键字指定对象或变量不可修改。</p>
+
+<h5 id="1-用于声明变量">1、用于声明变量</h5>
+
+<p>const关键字用于声明变量时，变量的值不可修改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++">	<span class="k">const</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="k">const</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>  <span class="c1">// error
+</span><span class="c1"></span></code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="2-用于声明指针">2、用于声明指针</h5>
+
+<p>const关键字放在&rsquo;*&lsquo;号前，表示指针所指向的内容不可更改。</p>
+
+<p>const关键字放在&rsquo;*&lsquo;号后，表示指针所指向的对象不可更改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++">	<span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+	<span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>	<span class="n">a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="k">const</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>	<span class="n">b</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span>
+	<span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">c</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+	<span class="n">c</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>	<span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">m</span><span class="p">;</span>
+	<span class="o">*</span><span class="n">d</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>	<span class="n">d</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span></code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="3-用于声明函数参数">3、用于声明函数参数</h5>
+
+<p>变量值传递不可修改，变量值传递时，函数会产生临时变量传入，一般不用const。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">void</span> <span class="nf">Test</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">a_</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a_</span><span class="p">;</span>
+	<span class="n">a_</span><span class="o">++</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>const关键字用于声明指针参数，防止指针被篡改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span><span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">Test</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">a_</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">a_</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>const关键字用于声明引用，防止被引用变量值被修改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">Test</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">a_</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">a_</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="4-用于声明函数返回值">4、用于声明函数返回值</h5>
+
+<p>也就是用const声明返回的指针和引用，使得函数调用表达式不能作为左值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span><span class="err"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+	<span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="p">}</span>
+	<span class="o">~</span><span class="n">A</span><span class="p">(){}</span>
+	<span class="kt">int</span><span class="o">&amp;</span> <span class="n">Test</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">m</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">const</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">Test_</span><span class="p">()</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">m</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+	<span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+	<span class="n">a</span><span class="p">.</span><span class="n">Test</span><span class="p">()</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ok
+</span><span class="c1"></span>	<span class="n">a</span><span class="p">.</span><span class="n">Test_</span><span class="p">()</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>	<span class="n">system</span><span class="p">(</span><span class="s">&#34;pause&#34;</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="5-用于声明类成员函数">5、用于声明类成员函数</h5>
+
+<p>const关键字用于声明类成员函数，指定函数类型为“只读”，不修改其调用对象。const关键字无法和 static关键字共同使用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span><span class="err"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+	<span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="p">}</span>
+	<span class="o">~</span><span class="n">A</span><span class="p">(){}</span>
+	<span class="kt">void</span> <span class="n">Test</span><span class="p">()</span> <span class="k">const</span>
+	<span class="p">{</span>
+		<span class="n">m</span><span class="o">++</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>		<span class="n">n</span><span class="o">++</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>	<span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+	<span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+	<span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果在上述函数中需要改变个别变量的值，可以将变量声明为mutable。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span><span class="err"> </span><span class="nc">A</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+	<span class="n">A</span><span class="p">()</span> <span class="p">{</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="p">}</span>
+	<span class="o">~</span><span class="n">A</span><span class="p">(){}</span>
+	<span class="kt">void</span> <span class="n">Test</span><span class="p">()</span> <span class="k">const</span>
+	<span class="p">{</span>
+		<span class="n">m</span><span class="o">++</span><span class="p">;</span> <span class="c1">// error
+</span><span class="c1"></span>		<span class="n">n</span><span class="o">++</span><span class="p">;</span> <span class="c1">// ok
+</span><span class="c1"></span>	<span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+	<span class="kt">int</span> <span class="n">m</span><span class="p">;</span>
+	<span class="k">mutable</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>参考：</p>
+
+<p><a href="https://msdn.microsoft.com/en-us/library/07x6b05d.aspx">https://msdn.microsoft.com/en-us/library/07x6b05d.aspx</a></p>
+
+<p><a href="https://docs.microsoft.com/zh-cn/cpp/cpp/const-cpp">https://docs.microsoft.com/zh-cn/cpp/cpp/const-cpp</a></p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">asdstail</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-09-20</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/const/">const</a>
+          <a href="/tags/c&#43;&#43;/">c&#43;&#43;</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+
+  <div class="post bg-white">
+      <div id="comments-gitment"></div>
+      <link rel="stylesheet" href="/lib/gitment/gitment-0.0.3.min.css">
+        <script src="/lib/gitment/gitment-0.0.3.min.js"></script>
+      <script type="text/javascript">
+      const gitment = new Gitment({
+        id: '学习笔记-const.md',
+        title: '学习笔记 Const',
+        link: decodeURI(location.href),
+        desc: '修改数据声明时，const关键字指定对象或变量不可修改。 1、用于声明变量 const关键字用于声明变量时，变量的值不可修改。 1 2 3 4 const int a = 6;',
+        owner: 'Asdstail',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      })
+      gitment.render('comments-gitment')
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+    </div>
+
+  
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1321628262@qq.com" rel="me noopener" class="iconfont icon-email"
+        title="email" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-stack-overflow"
+        title="stack-overflow" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-twitter"
+        title="twitter" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-facebook"
+        title="facebook" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-linkedin"
+        title="linkedin" target="_blank">
+      </a>
+      <a href="http://www.google.com" rel="me noopener" class="iconfont icon-google"
+        title="google" target="_blank">
+      </a>
+      <a href="https://github.com/asdstail/asdstail.github.io" rel="me noopener" class="iconfont icon-github"
+        title="github" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-weibo"
+        title="weibo" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-zhihu"
+        title="zhihu" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-douban"
+        title="douban" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-pocket"
+        title="pocket" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-tumblr"
+        title="tumblr" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-instagram"
+        title="instagram" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-gitlab"
+        title="gitlab" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-goodreads"
+        title="goodreads" target="_blank">
+      </a>
+      <a href="http://localhost:1313" rel="me noopener" class="iconfont icon-coding"
+        title="coding" target="_blank">
+      </a>
+      <a href="http://www.bilibili.com" rel="me noopener" class="iconfont icon-bilibili"
+        title="bilibili" target="_blank">
+      </a>
+  <a href="/index.xml" rel="noopener alternate" type="application/rss&#43;xml" class="iconfont icon-rss"
+    title="rss" target="_blank">
+  </a>
+  </div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span><span class="author">
+        Asdstail
+        
+      </span></span>
+
+  
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+<script type="text/javascript" src="/dist/jane.min.js?v=2.7.0"></script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
