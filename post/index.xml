@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Asdstail</copyright>
-    <lastBuildDate>Thu, 20 Sep 2018 18:21:50 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 17:59:27 +0800</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>学习笔记-ANSI C标准预定义宏</title>
+      <link>/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ansi-c%E6%A0%87%E5%87%86%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AE%8F/</link>
+      <pubDate>Fri, 21 Sep 2018 17:59:27 +0800</pubDate>
+      
+      <guid>/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ansi-c%E6%A0%87%E5%87%86%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AE%8F/</guid>
+      <description>ANSI C标准中有一些标准预定义宏，总结归纳如下。 __LINE__ :以十进制整形数常量形式描述当前源代码行号。 __FUNCTION__ :以字符串常量形式描述当前源代码所在函数名称。 __FILE__</description>
+    </item>
     
     <item>
       <title>学习笔记 Const</title>

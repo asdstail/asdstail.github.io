@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>C&#43;&#43; on Asdstail&#39;s Blog</title>
-    <link>/categories/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on Asdstail&#39;s Blog</description>
+    <title>宏 on Asdstail&#39;s Blog</title>
+    <link>/tags/%E5%AE%8F/</link>
+    <description>Recent content in 宏 on Asdstail&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Asdstail</copyright>
     <lastBuildDate>Fri, 21 Sep 2018 17:59:27 +0800</lastBuildDate>
     
-	<atom:link href="/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/%E5%AE%8F/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-ansi-c%E6%A0%87%E5%87%86%E9%A2%84%E5%AE%9A%E4%B9%89%E5%AE%8F/</guid>
       <description>ANSI C标准中有一些标准预定义宏，总结归纳如下。 __LINE__ :以十进制整形数常量形式描述当前源代码行号。 __FUNCTION__ :以字符串常量形式描述当前源代码所在函数名称。 __FILE__</description>
-    </item>
-    
-    <item>
-      <title>学习笔记 Const</title>
-      <link>/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-const/</link>
-      <pubDate>Thu, 20 Sep 2018 18:21:50 +0800</pubDate>
-      
-      <guid>/post/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-const/</guid>
-      <description>修改数据声明时，const关键字指定对象或变量不可修改。 1、用于声明变量 const关键字用于声明变量时，变量的值不可修改。 1 2 3 4 const int a = 6;</description>
     </item>
     
   </channel>
